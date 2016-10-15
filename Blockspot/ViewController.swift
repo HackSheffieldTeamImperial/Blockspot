@@ -19,9 +19,6 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
     var locationManager = CLLocationManager()
     let regionRadius: CLLocationDistance = 500
 
-
-    
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -36,21 +33,22 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         //self.locationManager.requestWhenInUseAuthorization()
         
         self.mapView.delegate = self
-        self.locationManager.startUpdatingLocation()
+        //self.locationManager.startUpdatingLocation()
 
         
-        self.mapView.isPitchEnabled = true
+        //self.mapView.isPitchEnabled = true
         self.mapView.showsBuildings = true
         
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
-        self.mapView.showsUserLocation = true
-
+        //self.mapView.showsUserLocation = true
         
         
-        if locationManager.location != nil {
-            centerMapOnLocation(location: self.mapView.userLocation.location!)
-        }
+        
+        
+        //if locationManager.location != nil {
+        //    centerMapOnLocation(location: self.mapView.userLocation.location!)
+        //}
     }
     
     func centerMapOnLocation(location: CLLocation) {
@@ -67,13 +65,16 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         case .authorized, .authorizedWhenInUse:
             manager.startUpdatingLocation()
             self.mapView.showsUserLocation = true
+            centerMapOnLocation(location: manager.location!)
         default:
             break
         }
         
     }
     
-    func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
-        self.mapView.centerCoordinate = (userLocation.location?.coordinate)!
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        //self.mapView.centerCoordinate = (userLocation.location?.coordinate)!
+        //centerMapOnLocation(location: self.mapView.userLocation.location!)
+
     }
 }
