@@ -688,6 +688,9 @@
                         <subviews>
                             <mapView mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="spD-Y8-KBg">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                                <connections>
+                                    <outlet property="delegate" destination="XfG-lQ-9wD" id="xKj-cp-x60"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <constraints>
@@ -699,6 +702,9 @@
                             <constraint firstItem="spD-Y8-KBg" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="qmH-ih-d5H"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="spD-Y8-KBg" id="HrL-vK-q9q"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

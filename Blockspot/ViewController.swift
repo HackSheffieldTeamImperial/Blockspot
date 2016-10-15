@@ -11,6 +11,9 @@ import MapKit
 
 class ViewController: NSViewController {
     
+    
+    @IBOutlet var mapView: MKMapView!
+    
     var Hubs: [Hub]? = nil
 
     override func viewDidLoad() {
@@ -28,3 +31,6 @@ class ViewController: NSViewController {
 
 }
 
+extension ViewController: MKMapViewDelegate {
+    
+}
