@@ -13,15 +13,11 @@ var WorkSpaces: [WorkSpace]? = nil
 
 class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
-    
     @IBOutlet weak var mapView: MKMapView!
     
     var locationManager = CLLocationManager()
     let regionRadius: CLLocationDistance = 500
 
-
-    
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -44,8 +40,6 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    
-    
     func locationManager(_ manager: CLLocationManager,
                          didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
@@ -61,4 +55,5 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
     func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
         self.mapView.centerCoordinate = (userLocation.location?.coordinate)!
     }
+    
 }
