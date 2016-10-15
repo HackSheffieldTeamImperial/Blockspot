@@ -9,12 +9,13 @@
 import Cocoa
 import MapKit
 
+var WorkSpaces: [WorkSpace]? = nil
+
 class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     
     @IBOutlet weak var mapView: MKMapView!
     
-    var Hubs: [Hub]? = nil
     var locationManager = CLLocationManager()
     let regionRadius: CLLocationDistance = 500
 
@@ -33,7 +34,7 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         self.mapView.showsBuildings = true
         
         if locationManager.location != nil {
-            centerMapOnLocation(location: locationManager.location!)
+            centerMapOnLocation(location: self.mapView.userLocation.location!)
         }
     }
     

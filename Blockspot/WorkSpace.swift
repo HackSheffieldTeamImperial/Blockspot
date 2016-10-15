@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-class Hub {
+class WorkSpace {
     
     var radius: Double
     var location: CLLocationCoordinate2D
