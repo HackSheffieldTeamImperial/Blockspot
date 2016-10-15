@@ -9,7 +9,12 @@
 import Cocoa
 import MapKit
 
-var WorkSpaces: [WorkSpace]? = nil
+let WorkSpaces: [WorkSpace] = [WorkSpace.init(radius: 200.0, location: CLLocationCoordinate2D(latitude: 53.38163472317644,
+                                                                            longitude: -1.4817873210134975), name: "Test1"),
+                   WorkSpace.init(radius: 100.0, location: CLLocationCoordinate2D(latitude: 53.3763472317644,
+                                                                            longitude: -1.483873210134975), name: "Test2")]
+
+
 
 class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
@@ -25,30 +30,18 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         self.locationManager.delegate = self
         
         let status = CLLocationManager.authorizationStatus()
-        
         if status == .restricted || status == .denied {
             return
         }
         
-        //self.locationManager.requestWhenInUseAuthorization()
-
         self.mapView.delegate = self
-        //self.locationManager.startUpdatingLocation()
-
-        
-        //self.mapView.isPitchEnabled = true
         self.mapView.showsBuildings = true
-        
-        //self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
-        //self.mapView.showsUserLocation = true
-        
+        locationManager.startUpdatingLocation()
+        self.mapView.showsUserLocation = true
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         
-        
-        //if locationManager.location != nil {
-        //    centerMapOnLocation(location: self.mapView.userLocation.location!)
-        //}
+        drawCircles()
     }
     
     func centerMapOnLocation(location: CLLocation) {
@@ -70,6 +63,13 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
             break
         }
         
+    }
+    
+    func drawCircles() {
+        for workSpace in WorkSpaces {
+            let circleOverlay = MKCircle(center: workSpace.location, radius: workSpace.radius)
+            mapView.add(circleOverlay)
+        }
     }
     
  
