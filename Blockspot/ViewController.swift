@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import MapKit
 
 class ViewController: NSViewController {
     
