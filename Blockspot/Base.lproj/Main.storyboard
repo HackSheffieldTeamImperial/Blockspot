@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.MapKitIBPlugin" version="11201"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -653,7 +655,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Blockspot" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
@@ -679,11 +681,30 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Blockspot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <mapView mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Hkh-CI-3Cj">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                                <connections>
+                                    <outlet property="delegate" destination="XfG-lQ-9wD" id="8wA-AX-3lM"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Hkh-CI-3Cj" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="1XN-en-XDP"/>
+                            <constraint firstAttribute="bottom" secondItem="Hkh-CI-3Cj" secondAttribute="bottom" id="S7w-LV-lSN"/>
+                            <constraint firstItem="Hkh-CI-3Cj" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="kv4-iB-NAe"/>
+                            <constraint firstItem="Hkh-CI-3Cj" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="nbR-pd-b5J"/>
+                            <constraint firstAttribute="trailing" secondItem="Hkh-CI-3Cj" secondAttribute="trailing" id="nsw-QY-8Zh"/>
+                            <constraint firstItem="Hkh-CI-3Cj" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="zqD-18-LZF"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="Hkh-CI-3Cj" id="zjj-ks-vK9"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

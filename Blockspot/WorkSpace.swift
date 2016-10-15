@@ -7,14 +7,15 @@
 //
 
 import Foundation
+import MapKit
 
-class Hub {
+class WorkSpace {
     
     var radius: Double
-    var location: (Double, Double)
+    var location: CLLocationCoordinate2D
     var name: String
     
-    init (radius: Double, location: (Double, Double), name: String) {
+    init (radius: Double, location: CLLocationCoordinate2D, name: String) {
         self.radius = radius
         self.location = location
         self.name = name
