@@ -36,9 +36,10 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         
         self.mapView.delegate = self
         self.mapView.showsBuildings = true
-        locationManager.startUpdatingLocation()
-        self.mapView.showsUserLocation = true
+        //locationManager.startUpdatingLocation()
+        //self.mapView.showsUserLocation = true
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //centerMapOnLocation(location: locationManager.location!)
         
         
         drawCircles()
@@ -55,10 +56,10 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
     func locationManager(_ manager: CLLocationManager,
                          didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
-        //case .authorized, .authorizedWhenInUse:
-            //manager.startUpdatingLocation()
-            //self.mapView.showsUserLocation = true
-            //centerMapOnLocation(location: manager.location!)
+        case .authorized, .authorizedWhenInUse:
+            manager.startUpdatingLocation()
+            self.mapView.showsUserLocation = true
+            centerMapOnLocation(location: manager.location!)
         default:
             break
         }
@@ -67,6 +68,7 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
     
     func drawCircles() {
         for workSpace in WorkSpaces {
+            print("bubu")
             let circleOverlay = MKCircle(center: workSpace.location, radius: workSpace.radius)
             mapView.add(circleOverlay)
         }
