@@ -18,9 +18,21 @@ class ViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let initialLocation = self.mapView.userLocation
+        
+        centerMapOnLocation(location: initialLocation)
+        
         // Do any additional setup after loading the view.
     }
+    
+    let regionRadius: CLLocationDistance = 1000
+    func centerMapOnLocation(location: MKUserLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+                                                                  regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+
 
     override var representedObject: Any? {
         didSet {
@@ -32,5 +44,5 @@ class ViewController: NSViewController {
 }
 
 extension ViewController: MKMapViewDelegate {
-    
+
 }

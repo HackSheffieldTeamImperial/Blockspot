@@ -7,15 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D200E1E31DB2836200BC94CC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D200E1E21DB2836200BC94CC /* MapKit.framework */; };
 		D2D051151DB26C9500989A60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D051141DB26C9500989A60 /* AppDelegate.swift */; };
 		D2D051171DB26C9500989A60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D051161DB26C9500989A60 /* ViewController.swift */; };
 		D2D051191DB26C9500989A60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2D051181DB26C9500989A60 /* Assets.xcassets */; };
 		D2D0511C1DB26C9500989A60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2D0511A1DB26C9500989A60 /* Main.storyboard */; };
 		D2D051241DB2700C00989A60 /* Hub.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D051231DB2700C00989A60 /* Hub.swift */; };
-		D2D051271DB2758500989A60 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D051261DB2758500989A60 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D200E1E21DB2836200BC94CC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D2D051111DB26C9500989A60 /* Blockspot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blockspot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2D051141DB26C9500989A60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2D051161DB26C9500989A60 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -23,7 +24,6 @@
 		D2D0511B1DB26C9500989A60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2D0511D1DB26C9500989A60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2D051231DB2700C00989A60 /* Hub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hub.swift; sourceTree = "<group>"; };
-		D2D051261DB2758500989A60 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D2D051281DB2758500989A60 /* Blockspot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Blockspot.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -32,7 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2D051271DB2758500989A60 /* MapKit.framework in Frameworks */,
+				D200E1E31DB2836200BC94CC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +73,7 @@
 		D2D051251DB2758500989A60 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D2D051261DB2758500989A60 /* MapKit.framework */,
+				D200E1E21DB2836200BC94CC /* MapKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -110,7 +110,7 @@
 				TargetAttributes = {
 					D2D051101DB26C9500989A60 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = K8TVN7PTJD;
+						DevelopmentTeam = 22G77347NM;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.Mac = {
@@ -272,10 +272,10 @@
 				CODE_SIGN_ENTITLEMENTS = Blockspot/Blockspot.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = K8TVN7PTJD;
+				DEVELOPMENT_TEAM = 22G77347NM;
 				INFOPLIST_FILE = Blockspot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = alebonardi.Blockspot;
+				PRODUCT_BUNDLE_IDENTIFIER = alebonardi.Blockspot2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -288,10 +288,10 @@
 				CODE_SIGN_ENTITLEMENTS = Blockspot/Blockspot.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = K8TVN7PTJD;
+				DEVELOPMENT_TEAM = 22G77347NM;
 				INFOPLIST_FILE = Blockspot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = alebonardi.Blockspot;
+				PRODUCT_BUNDLE_IDENTIFIER = alebonardi.Blockspot2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
