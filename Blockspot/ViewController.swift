@@ -76,7 +76,7 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let circleRenderer = MKCircleRenderer(overlay: overlay)
-        circleRenderer.fillColor = UIColor.red
+        circleRenderer.fillColor = NSColor.red
         circleRenderer.alpha = 0.1
         return circleRenderer
     }
@@ -84,8 +84,8 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
     override func mouseUp(with event: NSEvent) {
         let clickPoint = event.locationInWindow
         let clickCoordinate = mapView.convert(clickPoint, toCoordinateFrom: mapView)
-        let mapRect = MKMapRectMake(clickCoordinate.latitude, clickCoordinate.longitude, 0, 0)
-        
+        let mapRect = MKMapRectMake(clickCoordinate.latitude, clickCoordinate.longitude, 1, 1)
+        print("inside")
         for circle in mapView.overlays as! [MKCircle] {
             if circle.intersects(mapRect) {
                 print("OLE!!!")
