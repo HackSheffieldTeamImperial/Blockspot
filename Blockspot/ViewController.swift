@@ -74,6 +74,12 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let circleRenderer = MKCircleRenderer(overlay: overlay)
+        circleRenderer.fillColor = UIColor.red
+        circleRenderer.alpha = 0.1
+        return circleRenderer
+    }
  
     override func mouseUp(with event: NSEvent) {
         let clickPoint = event.locationInWindow
