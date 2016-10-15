@@ -9,6 +9,8 @@
 import Cocoa
 
 class ViewController: NSViewController {
+    
+    var Hubs: [Hub]? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
