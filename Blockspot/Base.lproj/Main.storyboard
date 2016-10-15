@@ -667,7 +667,7 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="1280" height="720"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                     </window>
                     <connections>
@@ -686,8 +686,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <mapView mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Hkh-CI-3Cj">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <mapView misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Hkh-CI-3Cj">
+                                <rect key="frame" x="0.0" y="0.0" width="1280" height="720"/>
                                 <connections>
                                     <outlet property="delegate" destination="XfG-lQ-9wD" id="8wA-AX-3lM"/>
                                 </connections>
@@ -708,7 +708,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="-107" y="958"/>
         </scene>
     </scenes>
 </document>
