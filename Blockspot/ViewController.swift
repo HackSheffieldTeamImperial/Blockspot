@@ -9,40 +9,55 @@
 import Cocoa
 import MapKit
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     
-    @IBOutlet var mapView: MKMapView!
+    @IBOutlet weak var mapView: MKMapView!
     
     var Hubs: [Hub]? = nil
+    var locationManager = CLLocationManager()
+    let regionRadius: CLLocationDistance = 500
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let initialLocation = self.mapView.userLocation
-        
-        centerMapOnLocation(location: initialLocation)
-        
-        // Do any additional setup after loading the view.
-    }
+
     
-    let regionRadius: CLLocationDistance = 1000
-    func centerMapOnLocation(location: MKUserLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                  regionRadius * 2.0, regionRadius * 2.0)
-        mapView.setRegion(coordinateRegion, animated: true)
-    }
-
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //self.locationManager.requestWhenInUseAuthorization()
+        
+        self.mapView.delegate = self
+        self.mapView.isPitchEnabled = true
+        self.mapView.showsBuildings = true
+        
+        if locationManager.location != nil {
+            centerMapOnLocation(location: locationManager.location!)
         }
     }
-
-
-}
-
-extension ViewController: MKMapViewDelegate {
-
+    
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(
+            location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    
+    
+    func locationManager(_ manager: CLLocationManager,
+                         didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorized, .authorizedWhenInUse:
+            manager.startUpdatingLocation()
+            self.mapView.showsUserLocation = true
+        default:
+            break
+        }
+        
+    }
+    
+    func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
+        self.mapView.centerCoordinate = (userLocation.location?.coordinate)!
+    }
 }
