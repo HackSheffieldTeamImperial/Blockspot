@@ -26,12 +26,27 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         
         super.viewDidLoad()
         self.locationManager.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        let status = CLLocationManager.authorizationStatus()
+        
+        if status == .restricted || status == .denied {
+            return
+        }
+        
         //self.locationManager.requestWhenInUseAuthorization()
         
         self.mapView.delegate = self
+        self.locationManager.startUpdatingLocation()
+
+        
         self.mapView.isPitchEnabled = true
         self.mapView.showsBuildings = true
+        
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        self.mapView.showsUserLocation = true
+
+        
         
         if locationManager.location != nil {
             centerMapOnLocation(location: self.mapView.userLocation.location!)
