@@ -191,7 +191,7 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
             anView?.isEnabled = true
             anView?.canShowCallout = true
             
-            let btn = NSButton()
+            let btn = JoinButton()
             btn.setButtonType(NSButtonType.momentaryPushIn)
             anView?.rightCalloutAccessoryView = btn
             
