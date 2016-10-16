@@ -36,6 +36,8 @@ extension UIViewController {
 extension MKMapView {
   func zoomToUserLocation() {
     guard let coordinate = userLocation.location?.coordinate else { return }
+    // this sets the rectangular zoom
+    // extension in swift?
     let region = MKCoordinateRegionMakeWithDistance(coordinate, 10000, 10000)
     setRegion(region, animated: true)
   }
