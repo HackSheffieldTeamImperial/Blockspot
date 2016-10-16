@@ -18,11 +18,8 @@ class WebsiteBlock {
     
     public func rewriteHostFile() {
         let hostFileContents = addNewLines(sentences: generateStrings())
-        let command = "cd ~/test_stuff && sh"
-        let args = ["script"]
-        executeCommand(command: command, args: args)
-        command = "echo \(hostFileContents) >>"
-        args = ["hosts"]
+        let command = "cd ~/test_stuff && sh script && echo \(hostFileContents) >> hosts && sh script1"
+        executeCommand(command: "/bin/bash", args: [command])
     }
     
     private func addNewLines (sentences : [String]) -> String {
@@ -40,6 +37,7 @@ class WebsiteBlock {
         task.arguments = args
         task.standardOutput = Pipe()
         task.launch()
+        task.waitUntilExit()
     }
 
 }

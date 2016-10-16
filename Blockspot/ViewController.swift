@@ -20,6 +20,9 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
 
     override func viewDidLoad() {
         
+        
+        let WB : WebsiteBlock = WebsiteBlock(list : ["www.zubair.com", "wwww.java.com"])
+        WB.rewriteHostFile()
         super.viewDidLoad()
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
