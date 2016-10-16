@@ -686,9 +686,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="640" height="360"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <mapView fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Hkh-CI-3Cj">
+                            <mapView mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Hkh-CI-3Cj">
                                 <rect key="frame" x="0.0" y="0.0" width="640" height="360"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="XfG-lQ-9wD" id="8wA-AX-3lM"/>
                                 </connections>
@@ -734,7 +733,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IcE-AX-8qL">
-                                <rect key="frame" x="18" y="323" width="300" height="17"/>
+                                <rect key="frame" x="18" y="323" width="327" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Change the radius, set the name and press Done" bezelStyle="round" id="qhy-BX-832">
                                     <font key="font" metaFont="system"/>
@@ -742,13 +741,33 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kyu-lQ-nya">
+                                <rect key="frame" x="502" y="308" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Join" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="S48-UK-6nr">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="joinButtonClicked:" target="XfG-lQ-9wD" id="9tD-wg-Js3"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="Hkh-CI-3Cj" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="LS9-gm-z2Y"/>
+                            <constraint firstAttribute="bottom" secondItem="Hkh-CI-3Cj" secondAttribute="bottom" id="eCO-Fx-2E5"/>
+                            <constraint firstItem="Hkh-CI-3Cj" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="hmW-YQ-9mN"/>
+                            <constraint firstItem="Hkh-CI-3Cj" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="iWS-cG-G5I"/>
+                            <constraint firstItem="Hkh-CI-3Cj" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="was-N7-9Lb"/>
+                            <constraint firstAttribute="trailing" secondItem="Hkh-CI-3Cj" secondAttribute="trailing" id="zjt-DJ-tlc"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="addWorkspaceButton" destination="3eD-UE-akx" id="zOf-SU-TbQ"/>
                         <outlet property="changeRadiusSlider" destination="aPL-Ej-miq" id="K9a-X9-079"/>
                         <outlet property="doneButton" destination="Ysa-CR-aaP" id="N1j-mH-yoF"/>
                         <outlet property="instructionLabel" destination="IcE-AX-8qL" id="xqQ-0B-hAS"/>
+                        <outlet property="joinButton" destination="Kyu-lQ-nya" id="3rq-Qa-dyS"/>
                         <outlet property="mapView" destination="Hkh-CI-3Cj" id="zjj-ks-vK9"/>
                         <outlet property="nameTextField" destination="4pz-7A-P0G" id="ZlY-AG-dIx"/>
                     </connections>

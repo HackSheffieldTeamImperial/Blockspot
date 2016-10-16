@@ -9,7 +9,7 @@
 import Cocoa
 import MapKit
 
-var WorkSpaces: [WorkSpace] = [WorkSpace.init(radius: 200.0, location: CLLocationCoordinate2D(latitude: 53.38863472317644,
+var WorkSpaces: [WorkSpace] = [WorkSpace.init(radius: 200.0, location: CLLocationCoordinate2D(latitude: 53.39763472317644,
                                                                             longitude: -1.4797873210134975), name: "Test1"),
                    WorkSpace.init(radius: 100.0, location: CLLocationCoordinate2D(latitude: 53.3763472317644,
                                                                             longitude: -1.483873210134975), name: "Test2")]
@@ -25,6 +25,7 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet var nameTextField: NSTextField!
     @IBOutlet var instructionLabel: NSTextField!
     
+    @IBOutlet weak var joinButton: NSButton!
     
     @IBAction func radiusSliderChanged(_ sender: AnyObject) {
         
@@ -32,9 +33,14 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         let circleOverlay = MKCircle(center: (locationManager.location?.coordinate)!, radius: changeRadiusSlider.doubleValue)
         mapView.add(circleOverlay)
         
-        
     }
     
+    @IBAction func joinButtonClicked(_ sender: AnyObject) {
+        
+        joinButton.isHidden = true
+        //RUN THE SCRIPT
+        
+    }
     
     @IBAction func workspaceButtonClicked(_ sender: AnyObject) {
         print("yes!")
@@ -76,6 +82,10 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
     let regionRadius: CLLocationDistance = 500
 
     override func viewDidLoad() {
+        
+        
+        let WB : WebsiteBlock = WebsiteBlock(list : ["www.zubair.com", "wwww.java.com"])
+        WB.rewriteHostFile()
         super.viewDidLoad()
         self.locationManager.delegate = self
         
@@ -187,15 +197,22 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
             anView?.isEnabled = true
             anView?.canShowCallout = true
             
-            let btn = NSButton()
-            btn.setButtonType(NSButtonType.momentaryPushIn)
-            anView?.rightCalloutAccessoryView = btn
+            joinButton.isHidden = false
+            joinButton.isEnabled = true
+            
+            //let btn = NSButton()
+            
+            //btn.setButtonType(NSButtonType.momentaryPushIn)
+            
+            //anView?.rightCalloutAccessoryView = btn
             
         } else {
             anView?.annotation = annotation
         }
         return anView
     }
+    
+
     
 
     
