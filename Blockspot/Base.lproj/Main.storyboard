@@ -693,15 +693,6 @@
                                     <outlet property="delegate" destination="XfG-lQ-9wD" id="8wA-AX-3lM"/>
                                 </connections>
                             </mapView>
-                            <slider hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPL-Ej-miq">
-                                <rect key="frame" x="18" y="18" width="199" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <sliderCell key="cell" enabled="NO" state="on" alignment="left" minValue="5" maxValue="200" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="mX1-au-901">
-                                    <connections>
-                                        <action selector="radiusSliderChanged:" target="XfG-lQ-9wD" id="pOa-43-Lrl"/>
-                                    </connections>
-                                </sliderCell>
-                            </slider>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3eD-UE-akx">
                                 <rect key="frame" x="591" y="311" width="29" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -713,12 +704,53 @@
                                     <action selector="workspaceButtonClicked:" target="XfG-lQ-9wD" id="UPr-FU-dfl"/>
                                 </connections>
                             </button>
+                            <slider hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPL-Ej-miq">
+                                <rect key="frame" x="18" y="18" width="199" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <sliderCell key="cell" enabled="NO" state="on" alignment="left" minValue="5" maxValue="200" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="mX1-au-901">
+                                    <connections>
+                                        <action selector="radiusSliderChanged:" target="XfG-lQ-9wD" id="pOa-43-Lrl"/>
+                                    </connections>
+                                </sliderCell>
+                            </slider>
+                            <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ysa-CR-aaP" customClass="DoneNSButton" customModule="Blockspot" customModuleProvider="target">
+                                <rect key="frame" x="371" y="10" width="72" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O5v-RN-hUj">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="doneButtonClicked:" target="XfG-lQ-9wD" id="Pmn-sS-OCr"/>
+                                </connections>
+                            </button>
+                            <textField hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4pz-7A-P0G">
+                                <rect key="frame" x="229" y="17" width="140" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="WorkSpace Name" bezelStyle="round" id="Qqb-Bo-BgW">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IcE-AX-8qL">
+                                <rect key="frame" x="18" y="323" width="300" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Change the radius, set the name and press Done" bezelStyle="round" id="qhy-BX-832">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="addWorkspaceButton" destination="3eD-UE-akx" id="zOf-SU-TbQ"/>
                         <outlet property="changeRadiusSlider" destination="aPL-Ej-miq" id="K9a-X9-079"/>
+                        <outlet property="doneButton" destination="Ysa-CR-aaP" id="N1j-mH-yoF"/>
+                        <outlet property="instructionLabel" destination="IcE-AX-8qL" id="xqQ-0B-hAS"/>
                         <outlet property="mapView" destination="Hkh-CI-3Cj" id="zjj-ks-vK9"/>
+                        <outlet property="nameTextField" destination="4pz-7A-P0G" id="ZlY-AG-dIx"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

@@ -9,7 +9,7 @@
 import Cocoa
 import MapKit
 
-let WorkSpaces: [WorkSpace] = [WorkSpace.init(radius: 200.0, location: CLLocationCoordinate2D(latitude: 53.38163472317644,
+var WorkSpaces: [WorkSpace] = [WorkSpace.init(radius: 200.0, location: CLLocationCoordinate2D(latitude: 53.38163472317644,
                                                                             longitude: -1.4817873210134975), name: "Test1"),
                    WorkSpace.init(radius: 100.0, location: CLLocationCoordinate2D(latitude: 53.3763472317644,
                                                                             longitude: -1.483873210134975), name: "Test2")]
@@ -21,6 +21,9 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet var addWorkspaceButton: NSButton!
     @IBOutlet var changeRadiusSlider: NSSlider!
+    @IBOutlet var doneButton: DoneNSButton!
+    @IBOutlet var nameTextField: NSTextField!
+    @IBOutlet var instructionLabel: NSTextField!
     
     
     @IBAction func radiusSliderChanged(_ sender: AnyObject) {
@@ -37,12 +40,34 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         print("yes!")
         changeRadiusSlider.isHidden = false
         changeRadiusSlider.isEnabled = true
+        doneButton.isHidden = false
+        doneButton.isEnabled = true
+        nameTextField.isHidden = false
+        nameTextField.isEnabled = true
+        instructionLabel.isHidden = false
         
         let circleOverlay = MKCircle(center: (locationManager.location?.coordinate)!, radius: changeRadiusSlider.doubleValue)
         mapView.add(circleOverlay)
         
     }
     
+    @IBAction func doneButtonClicked(_ sender: AnyObject) {
+        
+        changeRadiusSlider.isHidden = true
+        changeRadiusSlider.isEnabled = false
+        doneButton.isHidden = true
+        doneButton.isEnabled = false
+        nameTextField.isHidden = true
+        nameTextField.isEnabled = false
+        instructionLabel.isHidden = true
+
+        let workspace = WorkSpace(radius: changeRadiusSlider.doubleValue, location: (locationManager.location?.coordinate)!, name: nameTextField.stringValue)
+        WorkSpaces.append(workspace)
+        
+        mapView.removeOverlays(mapView.overlays)
+        drawCircles()
+        
+    }
     
     
     var locationManager = CLLocationManager()
