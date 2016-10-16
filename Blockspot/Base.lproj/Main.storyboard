@@ -667,7 +667,7 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="1280" height="720"/>
+                        <rect key="contentRect" x="196" y="240" width="640" height="360"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                     </window>
                     <connections>
@@ -683,32 +683,74 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Blockspot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="1280" height="720"/>
+                        <rect key="frame" x="0.0" y="0.0" width="640" height="360"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <mapView mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Hkh-CI-3Cj">
-                                <rect key="frame" x="0.0" y="0.0" width="1280" height="720"/>
+                            <mapView fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Hkh-CI-3Cj">
+                                <rect key="frame" x="0.0" y="0.0" width="640" height="360"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="XfG-lQ-9wD" id="8wA-AX-3lM"/>
                                 </connections>
                             </mapView>
-                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ef-oo-uoh">
-                                <rect key="frame" x="130" y="98" width="399" height="20"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3eD-UE-akx">
+                                <rect key="frame" x="591" y="311" width="29" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="n4E-wg-Jgg"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xQ9-cP-jLa">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="workspaceButtonClicked:" target="XfG-lQ-9wD" id="UPr-FU-dfl"/>
+                                </connections>
+                            </button>
+                            <slider hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPL-Ej-miq">
+                                <rect key="frame" x="18" y="18" width="199" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <sliderCell key="cell" enabled="NO" state="on" alignment="left" minValue="5" maxValue="200" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="mX1-au-901">
+                                    <connections>
+                                        <action selector="radiusSliderChanged:" target="XfG-lQ-9wD" id="pOa-43-Lrl"/>
+                                    </connections>
+                                </sliderCell>
                             </slider>
+                            <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ysa-CR-aaP" customClass="DoneNSButton" customModule="Blockspot" customModuleProvider="target">
+                                <rect key="frame" x="371" y="10" width="72" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O5v-RN-hUj">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="doneButtonClicked:" target="XfG-lQ-9wD" id="Pmn-sS-OCr"/>
+                                </connections>
+                            </button>
+                            <textField hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4pz-7A-P0G">
+                                <rect key="frame" x="229" y="17" width="140" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="WorkSpace Name" bezelStyle="round" id="Qqb-Bo-BgW">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IcE-AX-8qL">
+                                <rect key="frame" x="18" y="323" width="300" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Change the radius, set the name and press Done" bezelStyle="round" id="qhy-BX-832">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="Hkh-CI-3Cj" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="1XN-en-XDP"/>
-                            <constraint firstAttribute="bottom" secondItem="Hkh-CI-3Cj" secondAttribute="bottom" id="S7w-LV-lSN"/>
-                            <constraint firstItem="Hkh-CI-3Cj" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="kv4-iB-NAe"/>
-                            <constraint firstItem="Hkh-CI-3Cj" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="nbR-pd-b5J"/>
-                            <constraint firstAttribute="trailing" secondItem="Hkh-CI-3Cj" secondAttribute="trailing" id="nsw-QY-8Zh"/>
-                            <constraint firstItem="Hkh-CI-3Cj" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="zqD-18-LZF"/>
-                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="addWorkspaceButton" destination="3eD-UE-akx" id="zOf-SU-TbQ"/>
+                        <outlet property="changeRadiusSlider" destination="aPL-Ej-miq" id="K9a-X9-079"/>
+                        <outlet property="doneButton" destination="Ysa-CR-aaP" id="N1j-mH-yoF"/>
+                        <outlet property="instructionLabel" destination="IcE-AX-8qL" id="xqQ-0B-hAS"/>
                         <outlet property="mapView" destination="Hkh-CI-3Cj" id="zjj-ks-vK9"/>
+                        <outlet property="nameTextField" destination="4pz-7A-P0G" id="ZlY-AG-dIx"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -716,4 +758,7 @@
             <point key="canvasLocation" x="39" y="1019"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSAddTemplate" width="11" height="11"/>
+    </resources>
 </document>

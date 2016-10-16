@@ -9,8 +9,8 @@
 import Cocoa
 import MapKit
 
-let WorkSpaces: [WorkSpace] = [WorkSpace.init(radius: 200.0, location: CLLocationCoordinate2D(latitude: 53.38163472317644,
-                                                                            longitude: -1.4817873210134975), name: "Test1"),
+var WorkSpaces: [WorkSpace] = [WorkSpace.init(radius: 200.0, location: CLLocationCoordinate2D(latitude: 53.38863472317644,
+                                                                            longitude: -1.4797873210134975), name: "Test1"),
                    WorkSpace.init(radius: 100.0, location: CLLocationCoordinate2D(latitude: 53.3763472317644,
                                                                             longitude: -1.483873210134975), name: "Test2")]
 
@@ -18,14 +18,64 @@ let WorkSpaces: [WorkSpace] = [WorkSpace.init(radius: 200.0, location: CLLocatio
 
 class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
-    
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet var addWorkspaceButton: NSButton!
+    @IBOutlet var changeRadiusSlider: NSSlider!
+    @IBOutlet var doneButton: DoneNSButton!
+    @IBOutlet var nameTextField: NSTextField!
+    @IBOutlet var instructionLabel: NSTextField!
+    
+    
+    @IBAction func radiusSliderChanged(_ sender: AnyObject) {
+        
+        mapView.remove(mapView.overlays.last!)
+        let circleOverlay = MKCircle(center: (locationManager.location?.coordinate)!, radius: changeRadiusSlider.doubleValue)
+        mapView.add(circleOverlay)
+        
+        
+    }
+    
+    
+    @IBAction func workspaceButtonClicked(_ sender: AnyObject) {
+        print("yes!")
+        changeRadiusSlider.isHidden = false
+        changeRadiusSlider.isEnabled = true
+        doneButton.isHidden = false
+        doneButton.isEnabled = true
+        nameTextField.isHidden = false
+        nameTextField.isEnabled = true
+        instructionLabel.isHidden = false
+        
+        let circleOverlay = MKCircle(center: (locationManager.location?.coordinate)!, radius: changeRadiusSlider.doubleValue)
+        mapView.add(circleOverlay)
+        
+    }
+    
+    @IBAction func doneButtonClicked(_ sender: AnyObject) {
+        
+        changeRadiusSlider.isHidden = true
+        changeRadiusSlider.isEnabled = false
+        doneButton.isHidden = true
+        doneButton.isEnabled = false
+        nameTextField.isHidden = true
+        nameTextField.isEnabled = false
+        instructionLabel.isHidden = true
+
+        
+        // ADD NEW WORKSPACE
+        let workspace = WorkSpace(radius: changeRadiusSlider.doubleValue, location: (locationManager.location?.coordinate)!, name: nameTextField.stringValue)
+        WorkSpaces.append(workspace)
+        
+        mapView.removeOverlays(mapView.overlays)
+        drawCircles()
+        
+    }
+    
     
     var locationManager = CLLocationManager()
     let regionRadius: CLLocationDistance = 500
 
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         self.locationManager.delegate = self
         
@@ -36,10 +86,10 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         
         self.mapView.delegate = self
         self.mapView.showsBuildings = true
-        //locationManager.startUpdatingLocation()
+        locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        //centerMapOnLocation(location: locationManager.location!)
+        centerMapOnLocation(location: locationManager.location!)
         
         
         drawCircles()
@@ -50,8 +100,6 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
             location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
-    
-    
     
     func locationManager(_ manager: CLLocationManager,
                          didChangeAuthorization status: CLAuthorizationStatus) {
@@ -80,7 +128,7 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         circleRenderer.alpha = 0.1
         return circleRenderer
     }
- 
+
     override func mouseUp(with event: NSEvent) {
         var clickPoint = event.locationInWindow
         clickPoint.y = mapView.frame.height - clickPoint.y
@@ -111,6 +159,7 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
                         annotation.coordinate = workspace.location
                         annotation.title = workspace.name
                         mapView.addAnnotation(annotation)
+                        mapView.selectAnnotation(annotation, animated: true)
                     }
                 }
                 
@@ -135,11 +184,19 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         var anView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         if anView == nil {
             anView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            anView?.isEnabled = true
             anView?.canShowCallout = true
+            
+            let btn = NSButton()
+            btn.setButtonType(NSButtonType.momentaryPushIn)
+            anView?.rightCalloutAccessoryView = btn
+            
         } else {
             anView?.annotation = annotation
         }
         return anView
     }
+    
+
     
 }
