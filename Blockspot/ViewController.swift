@@ -135,11 +135,18 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         var anView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         if anView == nil {
             anView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            anView?.isEnabled = true
             anView?.canShowCallout = true
+            
+            let btn = NSButton()
+            btn.setButtonType(NSButtonType.momentaryPushIn)
+            anView?.rightCalloutAccessoryView = btn
+            
         } else {
             anView?.annotation = annotation
         }
         return anView
     }
+    
     
 }
