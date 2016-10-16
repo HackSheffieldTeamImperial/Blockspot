@@ -1,8 +1,6 @@
 #!/usr/bin/swift
 
 import Foundation
-
-import Foundation
 //run bash in swift
 func shell(args: String...) -> Int32 {
     let task = Process()
@@ -13,26 +11,16 @@ func shell(args: String...) -> Int32 {
     return task.terminationStatus
 }
 
-let text = "HELLO" //just a text
+let WB : WebsiteBlock = WebsiteBlock(list : ["www.twitter.com", "www.instagram.com"])
 
-let path = "/Users/admin_/Documents/Sheffield/Blockspot/sscript"
+shell(args: "cp", "/private/etc/hosts", "/Users/sarahbaka/Desktop/Blockspot/sscript");
+shell(args: "echo", "\\(WB.hostFileInput())", ">>", "/Users/sarahbaka/Desktop/Blockspot/sscript/hosts");
+shell(args: "sudo", "cp", "/Users/sarahbaka/Desktop/Blockspot/sscript/hosts", "/private/etc/hosts");
 
-shell(args: "ls")
-shell(args: "cp", "/private/etc/hosts", "/Users/admin_/Documents/Sheffield/Blockspot/sscript")
-
-//let host = "hosts"
-
-do {
-    let hosts_path = "/Users/admin_/Documents/Sheffield/Blockspot/sscript/hosts"
-    try text.write(toFile: hosts_path, atomically: true, encoding:String.Encoding.utf8)
-}
-catch {}
-
-shell(args: "pwd")
-
-/*
 //file I/O
 let file = "blacklist.txt" //this is the file. we will write to and read from it
+
+let text = "some text" //just a text
 
 if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
     
@@ -40,7 +28,6 @@ if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMa
     
     //writing
     do {
-
         try text.write(to: path, atomically: false, encoding: String.Encoding.utf8)
     }
     catch {/* error handling here */}
@@ -51,6 +38,4 @@ if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMa
         print(contents)
     }
     catch {/* error handling here */}
- 
 }
- */
