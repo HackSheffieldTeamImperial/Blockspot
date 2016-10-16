@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		74402A271DB2B1AC001E9216 /* Geofencing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74402A261DB2B1AC001E9216 /* Geofencing.swift */; };
-		74962F171DB37D9500EDCBB5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74962F161DB37D9500EDCBB5 /* main.swift */; };
 		A32B0BE11DB2ED7E0085B7F7 /* WebsiteBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32B0BE01DB2ED7E0085B7F7 /* WebsiteBlock.swift */; };
 		D200E1E31DB2836200BC94CC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D200E1E21DB2836200BC94CC /* MapKit.framework */; };
 		D2D051151DB26C9500989A60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D051141DB26C9500989A60 /* AppDelegate.swift */; };
@@ -16,11 +15,12 @@
 		D2D051191DB26C9500989A60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2D051181DB26C9500989A60 /* Assets.xcassets */; };
 		D2D0511C1DB26C9500989A60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2D0511A1DB26C9500989A60 /* Main.storyboard */; };
 		D2D051241DB2700C00989A60 /* WorkSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D051231DB2700C00989A60 /* WorkSpace.swift */; };
+		D2FFC0811DB3839B0042E8AA /* DoneNSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFC0801DB3839B0042E8AA /* DoneNSButton.swift */; };
+		D2FFC0831DB393960042E8AA /* JoinButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFC0821DB393960042E8AA /* JoinButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		74402A261DB2B1AC001E9216 /* Geofencing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geofencing.swift; sourceTree = "<group>"; };
-		74962F161DB37D9500EDCBB5 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		A32B0BE01DB2ED7E0085B7F7 /* WebsiteBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteBlock.swift; sourceTree = "<group>"; };
 		D200E1E21DB2836200BC94CC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D2D051111DB26C9500989A60 /* Blockspot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blockspot.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,6 +31,8 @@
 		D2D0511D1DB26C9500989A60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2D051231DB2700C00989A60 /* WorkSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkSpace.swift; sourceTree = "<group>"; };
 		D2D051281DB2758500989A60 /* Blockspot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Blockspot.entitlements; sourceTree = "<group>"; };
+		D2FFC0801DB3839B0042E8AA /* DoneNSButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneNSButton.swift; sourceTree = "<group>"; };
+		D2FFC0821DB393960042E8AA /* JoinButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,13 +70,14 @@
 				D2D051281DB2758500989A60 /* Blockspot.entitlements */,
 				D2D051141DB26C9500989A60 /* AppDelegate.swift */,
 				D2D051161DB26C9500989A60 /* ViewController.swift */,
+				D2FFC0821DB393960042E8AA /* JoinButton.swift */,
 				D2D051231DB2700C00989A60 /* WorkSpace.swift */,
 				74402A261DB2B1AC001E9216 /* Geofencing.swift */,
 				D2D051181DB26C9500989A60 /* Assets.xcassets */,
 				D2D0511A1DB26C9500989A60 /* Main.storyboard */,
+				D2FFC0801DB3839B0042E8AA /* DoneNSButton.swift */,
 				D2D0511D1DB26C9500989A60 /* Info.plist */,
 				A32B0BE01DB2ED7E0085B7F7 /* WebsiteBlock.swift */,
-				74962F161DB37D9500EDCBB5 /* main.swift */,
 			);
 			path = Blockspot;
 			sourceTree = "<group>";
@@ -119,7 +122,7 @@
 				TargetAttributes = {
 					D2D051101DB26C9500989A60 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 36WYLZ4X88;
+						DevelopmentTeam = 22G77347NM;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.Mac = {
@@ -166,10 +169,11 @@
 			files = (
 				74402A271DB2B1AC001E9216 /* Geofencing.swift in Sources */,
 				A32B0BE11DB2ED7E0085B7F7 /* WebsiteBlock.swift in Sources */,
+				D2FFC0811DB3839B0042E8AA /* DoneNSButton.swift in Sources */,
 				D2D051171DB26C9500989A60 /* ViewController.swift in Sources */,
 				D2D051151DB26C9500989A60 /* AppDelegate.swift in Sources */,
-				74962F171DB37D9500EDCBB5 /* main.swift in Sources */,
 				D2D051241DB2700C00989A60 /* WorkSpace.swift in Sources */,
+				D2FFC0831DB393960042E8AA /* JoinButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,10 +289,10 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 36WYLZ4X88;
+				DEVELOPMENT_TEAM = 22G77347NM;
 				INFOPLIST_FILE = Blockspot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = sarahbaka;
+				PRODUCT_BUNDLE_IDENTIFIER = alebonardi.Blockspot2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
@@ -303,10 +307,10 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 36WYLZ4X88;
+				DEVELOPMENT_TEAM = 22G77347NM;
 				INFOPLIST_FILE = Blockspot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = sarahbaka;
+				PRODUCT_BUNDLE_IDENTIFIER = alebonardi.Blockspot2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
