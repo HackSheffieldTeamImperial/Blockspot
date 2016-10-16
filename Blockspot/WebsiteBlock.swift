@@ -16,7 +16,7 @@ class WebsiteBlock {
         BlockedWebsites = list
     }
     
-    public func rewriteHostFile() -> String {
+    public func hostFileInput() -> String {
         return addNewLines(sentences: generateStrings())
     }
     

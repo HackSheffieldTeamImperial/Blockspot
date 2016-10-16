@@ -11,9 +11,11 @@ func shell(args: String...) -> Int32 {
     return task.terminationStatus
 }
 
-shell(args: "ls")
-shell(args: "cp", "/private/etc/hosts", "/Users/admin_/Documents/Sheffield/Blockspot/sscript")
-shell(args: "pwd")
+let WB : WebsiteBlock = WebsiteBlock(list : ["www.twitter.com", "www.instagram.com"])
+
+shell(args: "cp", "/private/etc/hosts", "/Users/sarahbaka/Desktop/Blockspot/sscript");
+shell(args: "echo", "\\(WB.hostFileInput())", ">>", "/Users/sarahbaka/Desktop/Blockspot/sscript/hosts");
+shell(args: "sudo", "cp", "/Users/sarahbaka/Desktop/Blockspot/sscript/hosts", "/private/etc/hosts");
 
 //file I/O
 let file = "blacklist.txt" //this is the file. we will write to and read from it
