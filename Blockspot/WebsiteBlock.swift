@@ -10,49 +10,36 @@ import Foundation
 
 class WebsiteBlock {
 
-    var BlockedWebsites: [String]
-    
+    private let BlockedWebsites: [String]
+ 
     init (list : [String]) {
         BlockedWebsites = list
     }
     
-    func generateStrings() -> [String] {
-        let ip = "127.0.0.1"
-        return BlockedWebsites.map({
-            (website: String) -> String in
-            "\(ip)       \(website)"
-        })
-    }
-    
-    func executeCommand(command: String, args: [String]) -> Void {
-        let task = Process()
-        
-        task.launchPath = command
-        task.arguments = args
-        
-        let pipe = Pipe()
-        task.standardOutput = pipe
-        task.launch()
-    }
-    
-    func addNewLines (sentences : [String]) -> String {
-        return sentences.map({s in s.appending("\n")}).joined()
-    }
-    
-    // EXECUTE A BASH SCRIPT FROM SWIFT!!
-    // THE GOAL IS TO EXECUTE A SCRIPT
-    // WHICH COPIES THE HOST FILE TO OUR DIRECTORY
-    // APPENDS THE GENERATED STRINGS
-    // THEN COPIES THE FILE BACK TO THE /private/etc/hosts
-    
-    func rewriteHostFile() {
+    public func rewriteHostFile() {
         let hostFileContents = addNewLines(sentences: generateStrings())
-        var command = "cd ~/test_stuff && sh"
-        var args = ["script"]
+        let command = "cd ~/test_stuff && sh"
+        let args = ["script"]
         executeCommand(command: command, args: args)
         command = "echo \(hostFileContents) >>"
         args = ["hosts"]
     }
     
+    private func addNewLines (sentences : [String]) -> String {
+        return sentences.map({s in s.appending("\n")}).joined()
+    }
+    
+    private func generateStrings() -> [String] {
+        let ip = "127.0.0.1"
+        return BlockedWebsites.map({ website in "\(ip)       \(website)"})
+    }
+    
+    private func executeCommand(command: String, args: [String]){
+        let task = Process()
+        task.launchPath = command
+        task.arguments = args
+        task.standardOutput = Pipe()
+        task.launch()
+    }
 
 }
