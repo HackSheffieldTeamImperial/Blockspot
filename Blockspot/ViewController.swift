@@ -9,7 +9,7 @@
 import Cocoa
 import MapKit
 
-var WorkSpaces: [WorkSpace] = [WorkSpace.init(radius: 200.0, location: CLLocationCoordinate2D(latitude: 53.38863472317644,
+var WorkSpaces: [WorkSpace] = [WorkSpace.init(radius: 200.0, location: CLLocationCoordinate2D(latitude: 53.39763472317644,
                                                                             longitude: -1.4797873210134975), name: "Test1"),
                    WorkSpace.init(radius: 100.0, location: CLLocationCoordinate2D(latitude: 53.3763472317644,
                                                                             longitude: -1.483873210134975), name: "Test2")]
