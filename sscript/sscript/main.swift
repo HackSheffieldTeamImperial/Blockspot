@@ -14,7 +14,8 @@ func shell(args: String...) -> Int32 {
 }
 
 shell(args: "ls")
-shell(args: "sh", "script")
+shell(args: "cp", "/private/etc/hosts", "/Users/admin_/Documents/Sheffield/Blockspot/sscript")
+shell(args: "pwd")
 
 
 
