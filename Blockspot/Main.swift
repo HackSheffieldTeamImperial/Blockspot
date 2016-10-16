@@ -1,8 +1,6 @@
 #!/usr/bin/swift
 
 import Foundation
-
-import Foundation
 //run bash in swift
 func shell(args: String...) -> Int32 {
     let task = Process()
