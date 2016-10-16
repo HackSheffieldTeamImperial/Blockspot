@@ -37,7 +37,7 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         self.mapView.delegate = self
         self.mapView.showsBuildings = true
         //locationManager.startUpdatingLocation()
-        //self.mapView.showsUserLocation = true
+        self.mapView.showsUserLocation = true
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         //centerMapOnLocation(location: locationManager.location!)
         
@@ -90,14 +90,30 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
             //print("ok")
             let centreCoordinate = circle.coordinate
             let centreLocation = CLLocation(latitude: centreCoordinate.latitude, longitude: centreCoordinate.longitude)
-            print(centreLocation)
-            print(clickLocation)
-            print(centreLocation.distance(from: clickLocation))
+            //print(centreLocation)
+            //print(clickLocation)
+            //print(centreLocation.distance(from: clickLocation))
             if centreLocation.distance(from: clickLocation) < circle.radius {
                 let circleRenderer = MKCircleRenderer(overlay: circle)
                 circleRenderer.fillColor = NSColor.red
                 circleRenderer.alpha = 0.5
+                mapView.add(circle)
                 print("OLE!!!")
+                
+                for workspace in WorkSpaces {
+                    let workspaceLocation = CLLocation(latitude: workspace.location.latitude, longitude: workspace.location.longitude)
+                    print(workspaceLocation)
+                    print(centreLocation)
+                    if workspace.location.latitude == centreCoordinate.latitude &&
+                        workspace.location.longitude == centreCoordinate.longitude {
+                        print("haha")
+                        var annotation = MKPointAnnotation()
+                        annotation.coordinate = workspace.location
+                        annotation.title = workspace.name
+                        mapView.addAnnotation(annotation)
+                    }
+                }
+                
             }
         }
     }
@@ -107,4 +123,23 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         //centerMapOnLocation(location: self.mapView.userLocation.location!)
 
     }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        print("oleeeee")
+        
+        if !(annotation is MKPointAnnotation) {
+            return nil
+        }
+        
+        let identifier = "annotation"
+        var anView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        if anView == nil {
+            anView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            anView?.canShowCallout = true
+        } else {
+            anView?.annotation = annotation
+        }
+        return anView
+    }
+    
 }
