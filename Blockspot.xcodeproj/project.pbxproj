@@ -116,7 +116,7 @@
 				TargetAttributes = {
 					D2D051101DB26C9500989A60 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = PD995XC8SP;
+						DevelopmentTeam = 22G77347NM;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.Mac = {
@@ -281,10 +281,10 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = PD995XC8SP;
+				DEVELOPMENT_TEAM = 22G77347NM;
 				INFOPLIST_FILE = Blockspot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = rakhilyamekhtieva.Blockspot2;
+				PRODUCT_BUNDLE_IDENTIFIER = alebonardi.Blockspot2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
@@ -299,10 +299,10 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = PD995XC8SP;
+				DEVELOPMENT_TEAM = 22G77347NM;
 				INFOPLIST_FILE = Blockspot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = rakhilyamekhtieva.Blockspot2;
+				PRODUCT_BUNDLE_IDENTIFIER = alebonardi.Blockspot2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;

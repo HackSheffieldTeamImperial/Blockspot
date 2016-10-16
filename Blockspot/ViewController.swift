@@ -19,6 +19,15 @@ let WorkSpaces: [WorkSpace] = [WorkSpace.init(radius: 200.0, location: CLLocatio
 class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet var addWorkspaceButton: NSButton!
+    @IBOutlet var changeRadiusSlider: NSSlider!
+    
+    
+    @IBAction func workspaceButtonClicked(_ sender: AnyObject) {
+        print("yes!")
+        changeRadiusSlider.isHidden = false
+        changeRadiusSlider.isEnabled = true
+    }
     
     var locationManager = CLLocationManager()
     let regionRadius: CLLocationDistance = 500
