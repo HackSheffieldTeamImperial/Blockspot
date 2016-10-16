@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74402A271DB2B1AC001E9216 /* Geofencing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74402A261DB2B1AC001E9216 /* Geofencing.swift */; };
+		A32B0BE11DB2ED7E0085B7F7 /* WebsiteBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32B0BE01DB2ED7E0085B7F7 /* WebsiteBlock.swift */; };
 		D200E1E31DB2836200BC94CC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D200E1E21DB2836200BC94CC /* MapKit.framework */; };
 		D2D051151DB26C9500989A60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D051141DB26C9500989A60 /* AppDelegate.swift */; };
 		D2D051171DB26C9500989A60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D051161DB26C9500989A60 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		74402A261DB2B1AC001E9216 /* Geofencing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geofencing.swift; sourceTree = "<group>"; };
+		A32B0BE01DB2ED7E0085B7F7 /* WebsiteBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteBlock.swift; sourceTree = "<group>"; };
 		D200E1E21DB2836200BC94CC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D2D051111DB26C9500989A60 /* Blockspot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blockspot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2D051141DB26C9500989A60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,9 +67,11 @@
 				D2D051141DB26C9500989A60 /* AppDelegate.swift */,
 				D2D051161DB26C9500989A60 /* ViewController.swift */,
 				D2D051231DB2700C00989A60 /* WorkSpace.swift */,
+				74402A261DB2B1AC001E9216 /* Geofencing.swift */,
 				D2D051181DB26C9500989A60 /* Assets.xcassets */,
 				D2D0511A1DB26C9500989A60 /* Main.storyboard */,
 				D2D0511D1DB26C9500989A60 /* Info.plist */,
+				A32B0BE01DB2ED7E0085B7F7 /* WebsiteBlock.swift */,
 			);
 			path = Blockspot;
 			sourceTree = "<group>";
@@ -155,6 +161,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74402A271DB2B1AC001E9216 /* Geofencing.swift in Sources */,
+				A32B0BE11DB2ED7E0085B7F7 /* WebsiteBlock.swift in Sources */,
 				D2D051171DB26C9500989A60 /* ViewController.swift in Sources */,
 				D2D051151DB26C9500989A60 /* AppDelegate.swift in Sources */,
 				D2D051241DB2700C00989A60 /* WorkSpace.swift in Sources */,

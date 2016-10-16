@@ -18,7 +18,6 @@ let WorkSpaces: [WorkSpace] = [WorkSpace.init(radius: 200.0, location: CLLocatio
 
 class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
-    
     @IBOutlet weak var mapView: MKMapView!
     
     var locationManager = CLLocationManager()
@@ -26,6 +25,9 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
 
     override func viewDidLoad() {
         
+        
+        let WB : WebsiteBlock = WebsiteBlock(list : ["www.zubair.com", "wwww.java.com"])
+        WB.rewriteHostFile()
         super.viewDidLoad()
         self.locationManager.delegate = self
         
@@ -50,8 +52,6 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
             location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
-    
-    
     
     func locationManager(_ manager: CLLocationManager,
                          didChangeAuthorization status: CLAuthorizationStatus) {
@@ -80,7 +80,7 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         circleRenderer.alpha = 0.1
         return circleRenderer
     }
- 
+
     override func mouseUp(with event: NSEvent) {
         var clickPoint = event.locationInWindow
         clickPoint.y = mapView.frame.height - clickPoint.y
@@ -148,5 +148,6 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         return anView
     }
     
+
     
 }
