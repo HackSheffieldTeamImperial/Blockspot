@@ -9,8 +9,8 @@
 import Cocoa
 import MapKit
 
-var WorkSpaces: [WorkSpace] = [WorkSpace.init(radius: 200.0, location: CLLocationCoordinate2D(latitude: 53.38163472317644,
-                                                                            longitude: -1.4817873210134975), name: "Test1"),
+var WorkSpaces: [WorkSpace] = [WorkSpace.init(radius: 200.0, location: CLLocationCoordinate2D(latitude: 53.38863472317644,
+                                                                            longitude: -1.4797873210134975), name: "Test1"),
                    WorkSpace.init(radius: 100.0, location: CLLocationCoordinate2D(latitude: 53.3763472317644,
                                                                             longitude: -1.483873210134975), name: "Test2")]
 
@@ -61,6 +61,8 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         nameTextField.isEnabled = false
         instructionLabel.isHidden = true
 
+        
+        // ADD NEW WORKSPACE
         let workspace = WorkSpace(radius: changeRadiusSlider.doubleValue, location: (locationManager.location?.coordinate)!, name: nameTextField.stringValue)
         WorkSpaces.append(workspace)
         
@@ -88,10 +90,10 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         
         self.mapView.delegate = self
         self.mapView.showsBuildings = true
-        //locationManager.startUpdatingLocation()
+        locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        //centerMapOnLocation(location: locationManager.location!)
+        centerMapOnLocation(location: locationManager.location!)
         
         
         drawCircles()
@@ -161,6 +163,7 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
                         annotation.coordinate = workspace.location
                         annotation.title = workspace.name
                         mapView.addAnnotation(annotation)
+                        mapView.selectAnnotation(annotation, animated: true)
                     }
                 }
                 
