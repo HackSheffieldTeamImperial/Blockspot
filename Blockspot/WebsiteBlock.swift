@@ -16,8 +16,10 @@ class WebsiteBlock {
         BlockedWebsites = list
     }
     
-    public func hostFileInput() -> String {
-        return addNewLines(sentences: generateStrings())
+    public func rewriteHostFile() {
+        let hostFileContents = addNewLines(sentences: generateStrings())
+        let command = "cd ~/test_stuff && sh script && echo \(hostFileContents) >> hosts && sh script1"
+        executeCommand(command: "/bin/bash", args: [command])
     }
     
     private func addNewLines (sentences : [String]) -> String {
