@@ -59,7 +59,7 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
         case .authorized, .authorizedWhenInUse:
             manager.startUpdatingLocation()
             self.mapView.showsUserLocation = true
-            //centerMapOnLocation(location: manager.location!)
+            centerMapOnLocation(location: manager.location!)
         default:
             break
         }
@@ -82,15 +82,17 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
     }
  
     override func mouseUp(with event: NSEvent) {
-        let clickPoint = event.locationInWindow
+        var clickPoint = event.locationInWindow
+        clickPoint.y = mapView.frame.height - clickPoint.y
         let clickCoordinate = mapView.convert(clickPoint, toCoordinateFrom: mapView)
         let clickLocation = CLLocation(latitude: clickCoordinate.latitude, longitude: clickCoordinate.longitude)
         for circle in mapView.overlays as! [MKCircle] {
-            print("ok")
+            //print("ok")
             let centreCoordinate = circle.coordinate
             let centreLocation = CLLocation(latitude: centreCoordinate.latitude, longitude: centreCoordinate.longitude)
             print(centreLocation)
             print(clickLocation)
+            print(centreLocation.distance(from: clickLocation))
             if centreLocation.distance(from: clickLocation) < circle.radius {
                 let circleRenderer = MKCircleRenderer(overlay: circle)
                 circleRenderer.fillColor = NSColor.red
