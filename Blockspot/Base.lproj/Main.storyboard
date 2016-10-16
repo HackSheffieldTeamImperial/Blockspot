@@ -693,6 +693,15 @@
                                     <outlet property="delegate" destination="XfG-lQ-9wD" id="8wA-AX-3lM"/>
                                 </connections>
                             </mapView>
+                            <slider hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPL-Ej-miq">
+                                <rect key="frame" x="18" y="18" width="199" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <sliderCell key="cell" enabled="NO" state="on" alignment="left" minValue="5" maxValue="200" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="mX1-au-901">
+                                    <connections>
+                                        <action selector="radiusSliderChanged:" target="XfG-lQ-9wD" id="pOa-43-Lrl"/>
+                                    </connections>
+                                </sliderCell>
+                            </slider>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3eD-UE-akx">
                                 <rect key="frame" x="591" y="311" width="29" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -704,11 +713,6 @@
                                     <action selector="workspaceButtonClicked:" target="XfG-lQ-9wD" id="UPr-FU-dfl"/>
                                 </connections>
                             </button>
-                            <slider hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPL-Ej-miq">
-                                <rect key="frame" x="18" y="18" width="199" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <sliderCell key="cell" enabled="NO" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="mX1-au-901"/>
-                            </slider>
                         </subviews>
                     </view>
                     <connections>

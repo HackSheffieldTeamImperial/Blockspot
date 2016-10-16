@@ -23,11 +23,27 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet var changeRadiusSlider: NSSlider!
     
     
+    @IBAction func radiusSliderChanged(_ sender: AnyObject) {
+        
+        mapView.remove(mapView.overlays.last!)
+        let circleOverlay = MKCircle(center: (locationManager.location?.coordinate)!, radius: changeRadiusSlider.doubleValue)
+        mapView.add(circleOverlay)
+        
+        
+    }
+    
+    
     @IBAction func workspaceButtonClicked(_ sender: AnyObject) {
         print("yes!")
         changeRadiusSlider.isHidden = false
         changeRadiusSlider.isEnabled = true
+        
+        let circleOverlay = MKCircle(center: (locationManager.location?.coordinate)!, radius: changeRadiusSlider.doubleValue)
+        mapView.add(circleOverlay)
+        
     }
+    
+    
     
     var locationManager = CLLocationManager()
     let regionRadius: CLLocationDistance = 500
