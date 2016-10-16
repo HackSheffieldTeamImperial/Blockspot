@@ -13,18 +13,21 @@ func shell(args: String...) -> Int32 {
     return task.terminationStatus
 }
 
-let text = "HELLO" //just a text
+let host = "##\n # Host Database\n#\n# localhost is used to configure the loopback interface\n# when the system is booting.  Do not change this entry.\n##\n127.0.0.1  localhost\n255.255.255.255  broadcasthost\n::1  localhost\n"
+
+let text = "127.0.0.1  \n" //just a text
 
 let path = "/Users/admin_/Documents/Sheffield/Blockspot/sscript"
 
 shell(args: "ls")
-shell(args: "cp", "/private/etc/hosts", "/Users/admin_/Documents/Sheffield/Blockspot/sscript")
+shell(args: "cp", "/private/etc/hosts", "/Users/sarahbaka/Desktop/Blockspot/Blockspot")
 
 //let host = "hosts"
 
 do {
-    let hosts_path = "/Users/admin_/Documents/Sheffield/Blockspot/sscript/hosts"
-    try text.write(toFile: hosts_path, atomically: true, encoding:String.Encoding.utf8)
+    let newHost = host + text
+    let hosts_path = "/Users/sarahbaka/Desktop/Blockspot/Blockspot/hosts"
+    try newHost.write(toFile: hosts_path, atomically: true, encoding:String.Encoding.utf8)
 }
 catch {}
 
@@ -38,19 +41,19 @@ if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMa
     
     let path = dir.appendingPathComponent(file)
     
-    //writing
-    do {
-
-        try text.write(to: path, atomically: false, encoding: String.Encoding.utf8)
-    }
-    catch {/* error handling here */}
-    
     //reading
     do {
         let contents = try String(contentsOf: path, encoding: String.Encoding.utf8)
         print(contents)
     }
     catch {/* error handling here */}
+    
+    //writing
+    do {
+
+        try text.write(to: path, atomically: false, encoding: String.Encoding.utf8)
+    }
+    catch {/* error handling here */}
  
 }
- */
+*/
